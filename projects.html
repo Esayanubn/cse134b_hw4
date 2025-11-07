@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio - Projects</title>
+  <meta name="description" content="Projects list.">
+  <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">☰ Menu</label>
+      <ul class="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About me</a></li>
+        <li><a href="experiments.html">(experiment)</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h1>Projects</h1>
+    <section >
+      <h2>Professional Projects/Internship Experience</h2>
+      <details class="project-article">
+        <summary>
+          <h3>Intern Software Developer, Enterprise Risk Team at AntGroup</h3>
+          <p><em>June 2025 - September 2025 | Hangzhou, China</em></p>
+        </summary>
+        <ul>
+          <li>Developed a derivative metrics Agent based on Program of Thoughts prompt engineering, enabling large language models to generate executable Python scripts from natural language descriptions of data and derivative metrics, effectively improving the accuracy of custom metrics for enterprise query agents</li>
+          <li>Extended the agent capability as a core module to build an enterprise risk metrics auto-generation management platform for 2B domain, implementing code persistence and effective reuse to enable efficient generation and usage of custom risk metrics, completing core system functionality, CRUD operations, and system architecture design, effectively reducing human and economic costs for user-defined metrics</li>
+          <li>Deeply participated in enterprise service runtime architecture practices, utilizing Redis middleware to cache generated code files and transforming the overall pipeline to handle production-level concurrent responses</li>
+          <li>Actively participated in data governance during development, effectively performing dirty data filtering and data quality management</li>
+        </ul>
+      </details>
+      
+      <details class="project-article">
+        <summary>
+          <h3>Intern Software Developer, Automation Tools Group at Ericsson</h3>
+          <p><em>Aug 2023 - Dec 2023 | Shanghai, China</em></p>
+        </summary>
+        
+        <ul>
+          <li>Developed scalable Python-based automation tools for formula regression in AAT-LT (Automated Acceptance Test – Load Test) system using modular design and OOP principles</li>
+          <li>Independently led data pipeline improvements for large-scale load testing, streamlining data ingestion and schema validation using Pandas/NumPy, reducing test time by 25%</li>
+          <li>Contributed to design, development, and unit tests of the AAT-LT system, fixing 3 defects in the adapter component and improving system reliability</li>
+          <li>Prepared prototype to integrate LitmusChaos into AAT-LT, developing expertise in cloud-native architectures and container orchestration, experimenting with Chaos engineering by introducing faults like node failures, pod terminations, and network disruptions</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="other-projects">
+      <h2>Other Projects & Research</h2>
+      <details class="project-card">
+        <summary><h2>Amazon Digital Music Recommender System</h2></summary>
+        <section>
+          <p><strong>Course Project | Oct - Dec 2024</strong></p>
+          <p>Built a comprehensive recommender system for Amazon Digital Music reviews using multiple machine learning approaches. Conducted extensive EDA on review data and implemented collaborative filtering, logistic regression, SVM, and deep learning models with PyTorch using TF-IDF for text feature extraction.</p>
+          <ul>
+            <li>Role: Full-stack ML Developer</li>
+            <li>Tech: Python, PyTorch, Pandas, Matplotlib, TF-IDF</li>
+            <li>Key Features: Collaborative filtering, deep learning models, text analysis</li>
+          </ul>
+        </section>
+        <footer>Recommender Systems & Web Mining Course Project</footer>
+      </details>
+
+      <details class="project-card">
+        <summary><h2>Mini RISC-V Operating System</h2></summary>
+        <section>
+          <p><strong>Course Project | Aug - Dec 2023</strong></p>
+          <p>Implemented a complete operating system from scratch in C based on QEMU simulator. Features include context switching with trapping, priority process scheduling, virtual memory management with three-level page tables, dynamic memory allocation, user-state program loading and execution, and thread forking.</p>
+          <ul>
+            <li>Role: Systems Developer</li>
+            <li>Tech: C, Assembly, Makefile, GDB, QEMU</li>
+            <li>Key Features: Process scheduling, virtual memory, system calls</li>
+          </ul>
+        </section>
+        <footer>Operating Systems Course Project</footer>
+      </details>
+
+      <details class="project-card">
+        <summary><h2>TCP Connection Protocol Implementation</h2></summary>
+        <section>
+          <p><strong>Course Project | Oct - Dec 2022</strong></p>
+          <p>Built a working TCP Connection Protocol with Sender and Receiver components in C++, achieving transmission speeds of 190 Mbit/s. Implemented message transmission mechanisms with functions for message waiting between network interfaces and routes.</p>
+          <ul>
+            <li>Role: Network Protocol Developer</li>
+            <li>Tech: C++, Sponge Library</li>
+            <li>Performance: 190 Mbit/s transmission speed</li>
+          </ul>
+        </section>
+        <footer>Computer Networks Course Project</footer>
+      </details>
+
+      <details class="project-card">
+        <summary><h2>Library Management System</h2></summary>
+        <section>
+          <p><strong>Course Project | Jun - Jul 2023</strong></p>
+          <p>Developed a comprehensive library management system with both frontend and backend components using Python, PyQt5, and MySQL. Implemented layered architecture and modularization concepts with complete CRUD operations.</p>
+          <ul>
+            <li>Role: Full-stack Developer</li>
+            <li>Tech: Python, PyQt5, MySQL, PyMySQL</li>
+            <li>Architecture: Layered architecture, relational data model</li>
+          </ul>
+        </section>
+        <footer>Database Systems Course Project</footer>
+      </details>
+
+      <details class="project-card">
+        <summary><h2>MySQL Honeypot Security System</h2></summary>
+        <section>
+          <p><strong>Course Project | Jan - Feb 2023</strong></p>
+          <p>Created and deployed a honeypot on MySQL server to detect, prevent, and defend against network threats by luring, monitoring, and analyzing attacker activities. Collected and analyzed data about different types of security attacks to simulate and optimize network security strategies.</p>
+          <ul>
+            <li>Role: Security Developer</li>
+            <li>Tech: MySQL, Network Security</li>
+            <li>Focus: Attack pattern analysis, threat detection</li>
+          </ul>
+        </section>
+        <footer>Computer Networks Security Project</footer>
+      </details>
+      <p>(... more)</p>
+    </section>
+
+    <a href="about.html#contact">Interested in my Project? Contact</a>
+
+    <footer><p>Copyright©2023-2025 Kefan Xu. All rights reserved.</p></footer>
+  </main>
+</body>
+</html>

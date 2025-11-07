@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Experiments</title>
+  <meta name="description" content="Experiment page showcasing HTML elements.">
+  <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script>
+    /* minimal canvas drawing (under 15 lines) */
+    function drawCanvas() {
+      const c = document.querySelector('canvas');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = "#EEE";
+      ctx.fillRect(0,0,c.width,c.height);
+      ctx.fillStyle = "#333";
+      ctx.fillText("Canvas demo", 10,20);
+    }
+    window.addEventListener('load', drawCanvas);
+  </script>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">☰ Menu</label>
+      <ul class="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About me</a></li>
+        <li><a href="experiments.html">(experiment)</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h1>Experiment page</h1>
+
+    <section class="media-section">
+      <h2>Media elements</h2>
+
+      <picture>
+        <source srcset="assets/img/image.jpeg" type="image/jpeg">
+        <img src="assets/img/image.jpeg" alt="Example picture fallback" width="200" height="120">
+      </picture>
+
+      <audio controls>
+        <source src="assets/audio/audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <video controls width="320" height="180">
+        <source src="assets/video/video.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+    </section>
+
+    <section class="canvas-section">
+      <h2>Canvas & Template </h2>
+
+      <canvas id="demo5" width="200" height="100"></canvas>
+      <script>
+      const ctx = demo5.getContext("2d");
+      let x = 0;
+      function draw() {
+          ctx.clearRect(0, 0, 200, 100);
+          ctx.fillRect(x, 40, 20, 20);
+          x = (x + 2) % 200;
+          requestAnimationFrame(draw);
+      }
+      draw();
+      </script>
+
+
+      <template id="sample-template">
+        <article><h3>Template content</h3><p>This is inside a template (not shown unless cloned by JS).</p></article>
+      </template>
+
+      
+    </section>
+
+   
+
+    <footer>
+      <p>Experiments footer</p>
+    </footer>
+  </main>
+
+  <noscript><p>Experiments: enable JS for canvas demo.</p></noscript>
+</body>
+</html>

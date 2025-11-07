@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kefan's Portfolio - Home</title>
+  <meta name="description" content="Personal portfolio homepage.">
+  <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="css/style.css"></link>
+  
+  <script>
+    /* hello-world custom element logs to console (allowed JS for this part) */
+    class HelloWorld extends HTMLElement {
+      connectedCallback(){ console.log("Hello world! (from <hello-world>)"); }
+    }
+    customElements.define('hello-world', HelloWorld);
+  </script>
+</head>
+<body>
+  <header>
+    
+    <nav >
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">☰ Menu</label>
+      <ul class="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About me</a></li>
+        <li><a href="experiments.html">(experiment)</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <h1>Welcomes to the Portfolio of Kefan Xu 
+    </h1>
+
+    <section>
+        <h2 id="intro">Intro & Motto</h2>
+        <div class="intro-motto">
+            <picture class="intro-avatar">
+                <source srcset="assets/img/avatar.jpg" type="image/webp">
+                <img src="assets/img/avatar.jpg" alt="avatar">
+            </picture>
+            <span class="intro-bubble">
+              <p>Hi there! I'm Kefan Xu, a software developer who loves Jpop, Movies & Esports.</p>
+                <p class="need-ruby">
+                    <ruby>
+                        一生<rt>いっしょう</rt>
+                    </ruby>
+                    分の
+                    <ruby>
+                        長さ<rt>ながさ</rt>
+                    </ruby>
+                    を ざっと
+                    <ruby>
+                        115万<rt>ひゃくじゅうごまん</rt>
+                        キロ<rt>きろ</rt>
+                    </ruby>
+                </p>
+              </span>
+
+            <picture class="intro-sideimg">
+                <img src="assets/img/Pic1.jpg" alt="placeholder image">
+            </picture>
+        </div>
+    </section>
+
+    <section >
+
+        <h2>Highlights</h2>
+        <ul class="two-column">
+            <li>🎓 MS in ECE at UCSD (Machine Learning & Data Science Track)</li>
+            <li>💼 Software Developer Intern at AntGroup (Enterprise Risk) & Ericsson (Automation Tools)</li>
+            <li>🔬 Research: Recommender Systems, Deep Learning, Chaos Engineering</li>
+            <li>⚡ Projects: RISC-V OS, TCP Protocol, Library Management System</li>
+            <li>🌐 Skills: Python, Java, C/C++, PyTorch, Docker, Kubernetes</li>
+        </ul>
+
+      <p><a href="about.html">more detail about me</a></p>
+    </section>
+
+    <section >
+      <h2 id="projects">Featured Projects</h2>
+      <ul class="two-column">
+        <li>🎵 Amazon Music Recommender System — Collaborative filtering & deep learning with PyTorch</li>
+        <li>🖥️ Mini RISC-V OS — Complete OS implementation with process scheduling & virtual memory</li>
+        <li>🌐 TCP Connection Protocol — High-performance network protocol achieving 190 Mbit/s</li>
+      </ul>
+      <p><a href="projects.html">view more</a></p>
+    </section>
+
+    <section>
+      <h2 id="blogs">Latest blog posts</h2>
+      <ol class="two-column">
+        <li><a href="blogs/blog1/index.html">Modern Web Development: Building Scalable Applications</a></li>
+        <li><a href="blogs/blog2/index.html">LLMs for Programming: The Future of Code Generation</a></li>
+      </ol>
+      <p><a href="blogs.html">view more</a></p>
+    </section>
+
+    
+
+    <footer>
+      <cite>background photo: cover of my favorite album from Yorushika <em>That's Why I Gave Up on Music</em></cite>
+      
+      <p>Copyright©2023-2025 Kefan Xu. All rights reserved.</p>
+      
+    </footer>
+  </main>
+
+  <noscript>
+    <p>Enable JavaScript for best experience (scripts are minimal and safe).</p>
+  </noscript>
+
+
+
+
+  <!-- use the hello-world element somewhere so the console message triggers -->
+  <hello-world></hello-world>
+</body>
+</html>
