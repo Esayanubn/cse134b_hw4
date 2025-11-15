@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form With JS</title>
+  <meta name="description" content="Form With JS.">
+  <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
+
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      --input-border-error: #b00020;
+      --input-border-success: #0f8a01;
+      --input-bg-success: #f0fff0;
+      --input-required-color: #ffb82b;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 48px 16px;
+      background: var(--bg-page);
+      color: #111;
+    }
+
+    form.contact-form {
+      width: 90%;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      & fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        & legend {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        & span {
+          display: flex;
+          flex-direction: column;
+          gap: 0.35rem;
+        }
+
+        & input,
+        & textarea {
+          padding: 10px;
+          font-size: 1rem;
+          border: 1px solid #aaa;
+          border-radius: 6px;
+          background: #fafafa;
+        }
+
+        & input:focus,
+        & textarea:focus {
+          outline: 3px solid #cce3ff;
+          border-color: #0077ff;
+          background: white;
+        }
+
+        & input:optional,
+        & textarea:optional {
+          background: #f2f2f2;
+        }
+
+        & input:required {
+          border-left: 4px solid var(--input-required-color); 
+          margin-left: 8px;
+        }
+
+        & span:has(input[required]) label::after {
+          content: " *";
+          color: red;
+          margin-left: 4px;
+        }
+
+        & input:user-invalid:not(:placeholder-shown),
+        & textarea:user-invalid:not(:placeholder-shown) {
+          border-left: 4px solid var(--input-border-error) !important;
+          margin-left: 8px;
+          background: #fff5f6;
+        }
+
+        & input:valid {
+          border-color: var(--input-border-success) !important;
+          background: var(--input-bg-success) !important;
+        }
+
+        
+        & button { 
+          height: 2rem;
+          width: 200px;
+        }
+
+        & button:hover {
+          background: gray;
+        }
+
+        & output.error {
+          border: #222;
+          color: #d00000;
+          font-size: 0.95rem;
+          min-height: 1.2rem; 
+        }
+
+        & output.info {
+
+          border: #222;
+          font-size: 0.95rem;
+          min-height: 1.2rem;
+        }
+
+        & .char-counter {
+          font-size: 0.85rem;
+          text-align: right;
+          margin-top: 0.25rem;
+        }
+
+        & .char-counter.warning {
+          color: #ff9800;
+          font-weight: bold;
+        }
+
+        & .char-counter.error {
+          color: #d00000;
+          font-weight: bold;
+        }
+
+        & input.flash,
+        & textarea.flash {
+          animation: flash 0.5s ease-in-out;
+        }
+
+        & output.fade-out {
+          animation: fadeOut 3s ease-out forwards;
+        }
+
+      }
+    }
+    
+
+   
+
+  </style>
+
+  <script>
+    let form_errors = [];
+
+    const fieldConfigs = {
+      'name': {
+        pattern: /^[A-Za-z\s]*$/,
+        errorMessage: 'invalid name content: only letters and spaces are allowed.'
+      },
+      'email': {
+        pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/,
+        errorMessage: 'invalid email content: only letters, at, numbers, dots, dashes and underscores are allowed.'
+      }
+    };
+
+    const form = document.getElementById('contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const commentTextarea = document.getElementById('comment');
+    const errorOutput = document.getElementById('output-error');
+    const infoOutput = document.getElementById('output-info');
+    const charCounter = document.getElementById('char-counter');
+    const formErrorsInput = document.getElementById('form-errors-input');
+
+    function showErrorMessage(message) {
+      errorOutput.textContent = message;
+      errorOutput.classList.remove('fade-out');
+      void errorOutput.offsetWidth;
+      errorOutput.classList.add('fade-out');
+      
+      setTimeout(() => {
+        errorOutput.textContent = '';
+        errorOutput.classList.remove('fade-out');
+      }, 3000);
+    }
+
+  </script>
+</head>
+
+
+
+<form 
+  id="contact-form"
+  class="contact-form"
+  action="https://httpbin.org/post"
+  method="POST"
+  >
+    <fieldset>
+      <legend>Connect form</legend>
+
+      <span> 
+        <label for="name">Name</label>
+        <input 
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          required
+          pattern="[A-Za-z\s]+"
+          minlength="2"
+          maxlength="40"
+        >
+      </span>
+     
+      <span> 
+        <label for="email">Email</label> 
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="you@example.com" 
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}" 
+          inputmode="email"
+          autocomplete="email"
+          minlength="6"
+          maxlength="254"
+          required>
+      </span>
+      
+      <span>
+        <label for="comment">Comment</label> 
+        <textarea 
+          id="comment" 
+          name="comment" 
+          rows="6" 
+          placeholder="Share a quick summary of your question or feedback."
+          minlength="15"
+          maxlength="500"
+          aria-describedby="comment-hint"
+          required></textarea>
+          <p id="char-counter" class="char-counter">0 / 500</p>
+      </span>
+      
+
+      <input type="hidden" name="possible_bot" value="true">
+
+      <output id="output-error" class="error"></output>
+      <output id="output-info" class="info"></output>
+
+      <button >Send</button>
+    </fieldset>
+  </form>
