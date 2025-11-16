@@ -6,7 +6,7 @@
   <title>Form NO JS</title>
   <meta name="description" content="Form NO JS.">
   <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
-
+  <script src="scripts/theme.js"></script>
   <style>
     :root {
       color-scheme: light;
@@ -16,25 +16,144 @@
       --input-border-success: #0f8a01;
       --input-bg-success: #f0fff0;
       --input-required-color: #ffb82b;
+      
+      /* Light mode variables (default) */
+      --bg-page: #f5f5f5;
+      --bg-section: #ffffff;
+      --bg-card: #fafafa;
+      --text-primary: #111;
+      --text-secondary: #666;
+      --nav-bg: lightblue;
+      --nav-text: #333;
+      --nav-hover: #f0f0f0;
+      --border-color: #aaa;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --accent: lightblue;
+      --placeholder-color: #999;
     }
+
+    /* Dark mode variables */
+    [data-theme="dark"] {
+      --bg-page: #1a1a1a;
+      --bg-section: #2a2a2a;
+      --bg-card: #333333;
+      --text-primary: rgba(255, 255, 255, 0.9);
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --nav-bg: #2a2a2a;
+      --nav-text: rgba(255, 255, 255, 0.9);
+      --nav-hover: rgba(255, 255, 255, 0.1);
+      --border-color: rgba(255, 255, 255, 0.2);
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --accent: #4cc9f0;
+      --placeholder-color: #acacac;
+    }
+    
+ 
+
+    
 
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0;
+      background: var(--bg-page);
+      color: var(--text-primary);
+    }
+
+    header {
+      width: 100%;
+    }
+    
+    header nav {
+      background-color: var(--nav-bg);
+      border-bottom: 2px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header .main-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      padding: 0.75rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    header .main-menu li {
+      margin: 0 0.5rem;
+      font-size: 1.25rem;
+      font-family: 'Bungee','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: bold;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: var(--nav-text);
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    header nav a:hover {
+      background-color: var(--nav-hover);
+    }
+    
+    header .theme-toggle-container {
+      display: none; 
+      align-items: center;
+      margin-left: auto;
+    }
+    
+    header .theme-toggle-container.js-enabled {
+      display: flex;
+    }
+    
+    header .theme-toggle {
+      background: none;
+      border: 2px solid var(--nav-text);
+      color: var(--nav-text);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+      font-family: 'Bungee','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    header .theme-toggle:hover {
+      background-color: var(--nav-hover);
+    }
+    
+    header .theme-toggle:focus {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    main {
+      width: 100%;
+      display: flex;
       justify-content: center;
       align-items: flex-start;
       padding: 48px 16px;
-      background: var(--bg-page);
-      color: #111;
     }
+
 
     form.contact-form {
       width: 90%;
-      background: white;
+      max-width: 600px;
+      background: var(--bg-section);
       padding: 24px;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px var(--shadow-color);
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
@@ -49,38 +168,46 @@
           font-size: 1.5rem;
           font-weight: bold;
           margin-bottom: 0.5rem;
+          color: var(--text-primary);
         }
 
         & span {
           display: flex;
           flex-direction: column;
           gap: 0.35rem;
+          color: var(--text-primary);
         }
 
         & input,
         & textarea {
           padding: 10px;
           font-size: 1rem;
-          border: 1px solid #aaa;
+          border: 1px solid var(--border-color);
           border-radius: 6px;
-          background: #fafafa;
+          background: var(--bg-card);
+          color: var(--text-primary);
         }
 
         & input:focus,
         & textarea:focus {
-          outline: 3px solid #cce3ff;
-          border-color: #0077ff;
-          background: white;
+          outline: 3px solid var(--accent);
+          border-color: var(--accent);
+          background: var(--bg-card);
         }
 
         & input:optional,
         & textarea:optional {
-          background: #f2f2f2;
+          background: var(--bg-card);
         }
 
         & input:required {
           border-left: 4px solid var(--input-required-color); 
           margin-left: 8px;
+        }
+
+        & input::placeholder,
+        & textarea::placeholder {
+          color: var(--placeholder-color) ;
         }
 
         & span:has(input[required]) label::after {
@@ -93,7 +220,7 @@
         & textarea:user-invalid:not(:placeholder-shown) {
           border-left: 4px solid var(--input-border-error) !important;
           margin-left: 8px;
-          background: #fff5f6;
+          background: var(--bg-card);
         }
 
         & input:valid {
@@ -105,30 +232,32 @@
         & button { 
           height: 2rem;
           width: 200px;
+          background: var(--accent);
+          color: var(--nav-text);
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: bold;
         }
 
         & button:hover {
-          background: gray;
+          opacity: 0.9;
         }
 
         & output.error {
-          border: #222;
-          color: #d00000;
+          color: var(--input-border-error);
           font-size: 0.95rem;
           min-height: 1.2rem; 
         }
 
         & output.info {
-
-          border: #222;
+          color: var(--text-secondary);
           font-size: 0.95rem;
           min-height: 1.2rem;
         }
 
       }
     }
-    
-
    
 
   </style>
@@ -137,60 +266,77 @@
 
 
 
-<form class="contact-form"
-    action="https://httpbin.org/post"
-    method="POST"
-    
-    >
-    <fieldset>
-      <legend>Connect form</legend>
-
-      <span> 
-        <label for="name">Name</label>
-        <input 
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your name"
-          required
-          pattern="[A-Za-z\s]+"
-          minlength="2"
-          maxlength="40"
+<body>
+  <header>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="form-with-js.html">Form With Js</a></li>
+        <li class="theme-toggle-container">
+          <button id="theme-toggle" class="theme-toggle" type="button">🌙 Dark &nbsp</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <form class="contact-form"
+        action="https://httpbin.org/post"
+        method="POST"
+        
         >
-      </span>
-     
-      <span> 
-        <label for="email">Email</label> 
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          placeholder="you@example.com" 
-          inputmode="email"
-          autocomplete="email"
-          minlength="6"
-          maxlength="254"
-          required>
-      </span>
-      
-      <span>
-        <label for="comment">Comment</label> 
-        <textarea 
-          id="comment" 
-          name="comment" 
-          rows="6" 
-          placeholder="Share a quick summary of your question or feedback."
-          minlength="15"
-          maxlength="500"
-          required></textarea>
-      </span>
-      
+        <fieldset>
+          <legend>Connect form</legend>
 
-      <input type="hidden" name="possible_bot" value="true">
+          <span> 
+            <label for="name">Name</label>
+            <input 
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required
+              pattern="[A-Za-z\s]+"
+              minlength="2"
+              maxlength="40"
+            >
+          </span>
+        
+          <span> 
+            <label for="email">Email</label> 
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="you@example.com" 
+              inputmode="email"
+              autocomplete="email"
+              minlength="6"
+              maxlength="254"
+              required>
+          </span>
+          
+          <span>
+            <label for="comment">Comment</label> 
+            <textarea 
+              id="comment" 
+              name="comment" 
+              rows="6" 
+              placeholder="Share a quick summary of your question or feedback."
+              minlength="15"
+              maxlength="500"
+              required></textarea>
+          </span>
+          
 
-      <output class="error"></output>
-      <output class="info"></output>
+          <input type="hidden" name="possible_bot" value="true">
 
-      <button >Send</button>
-    </fieldset>
-  </form>
+          <output class="error"></output>
+          <output class="info"></output>
+
+          <button >Send</button>
+        </fieldset>
+      </form>
+  </main>
+</body>
+</html>
