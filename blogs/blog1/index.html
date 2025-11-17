@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="view-transition" content="same-origin">
   <title>Modern Web Development: Building Scalable Applications</title>
   <meta name="description" content="Exploring modern web development practices and scalable application architecture.">
   <link rel="icon" href="../../assets/img/siteicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../scripts/theme.js"></script>
 </head>
 <body>
+  <!-- View Transition 覆盖层 -->
+  <div class="view-transition-overlay" style="view-transition-name: transition-overlay;"></div>
   <header>
-    <nav aria-label="Main navigation">
+    <nav å>
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="menu-icon">☰ Menu</label>
       <ul class="main-menu">
@@ -19,6 +24,9 @@
         <li><a href="../../blogs.html">Blogs</a></li>
         <li><a href="../../about.html">About me</a></li>
         <li><a href="../../experiments.html">(experiment)</a></li>
+        <li class="theme-toggle-container">
+          <button id="theme-toggle" class="theme-toggle" type="button">🌙 Dark &nbsp</button>
+        </li>
       </ul>
     </nav>
     <hr>
@@ -26,8 +34,10 @@
   <main>
     <article>
       <h1>Modern Web Development: Building Scalable Applications</h1>
-      <p><strong>Keywords:</strong> Web Development, Scalability, Microservices, Cloud Architecture, Performance Optimization</p>
-      <p><em>Published: January 2025 | Author: Kefan Xu(actually GenAI)</em></p>
+      <section>
+        <p><strong>Keywords:</strong> Web Development, Scalability, Microservices, Cloud Architecture, Performance Optimization</p>
+        <p><em>Published: January 2025 | Author: Kefan Xu(actually GenAI)</em></p>
+      </section>  
 
       <section>
         <h2>Introduction: The Evolution of Web Development</h2>

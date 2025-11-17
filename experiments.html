@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="view-transition" content="same-origin">
   <title>Experiments</title>
   <meta name="description" content="Experiment page showcasing HTML elements.">
   <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
@@ -24,8 +25,9 @@
   </script>
 </head>
 <body>
+  <div class="view-transition-overlay" style="view-transition-name: transition-overlay;"></div>
   <header>
-    <nav aria-label="Main navigation">
+    <nav >
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="menu-icon">☰ Menu</label>
       <ul class="main-menu">

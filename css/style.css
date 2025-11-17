@@ -32,7 +32,13 @@
 }
 
 
+
 :root {
+    line-height: 1.5;
+    --input-border-error: #b00020;
+    --input-border-success: #0f8a01;
+    --input-bg-success: #f0fff0;
+    --input-required-color: #ffb82b;
     --background-color: #e1f5fa;
     --background-blur: 6px;
     --header-footer-color: #d39e0f;
@@ -56,6 +62,42 @@
     --bg-image: url("../assets/img/dreamland_light.jpg");
 }
 
+h1 {
+    text-shadow: 
+        -8px -8px 0 rgb(255, 255, 255),
+        -6px -8px 0 rgb(255, 255, 255),
+        -4px -8px 0 rgb(255, 255, 255),
+        -2px -8px 0 rgb(255, 255, 255),
+        0 -8px 0 rgb(255, 255, 255),
+        2px -8px 0 rgb(255, 255, 255),
+        4px -8px 0 rgb(255, 255, 255),
+        6px -8px 0 rgb(255, 255, 255),
+        8px -8px 0 rgb(255, 255, 255),
+        -8px -6px 0 rgb(255, 255, 255),
+        8px -6px 0 rgb(255, 255, 255),
+        -8px -4px 0 rgb(255, 255, 255),
+        8px -4px 0 rgb(255, 255, 255),
+        -8px -2px 0 rgb(255, 255, 255),
+        8px -2px 0 rgb(255, 255, 255),
+        -8px 0 0 rgb(255, 255, 255),
+        8px 0 0 rgb(255, 255, 255),
+        -8px 2px 0 rgb(255, 255, 255),
+        8px 2px 0 rgb(255, 255, 255),
+        -8px 4px 0 rgb(255, 255, 255),
+        8px 4px 0 rgb(255, 255, 255),
+        -8px 6px 0 rgb(255, 255, 255),
+        8px 6px 0 rgb(255, 255, 255),
+        -8px 8px 0 rgb(255, 255, 255),
+        -6px 8px 0 rgb(255, 255, 255),
+        -4px 8px 0 rgb(255, 255, 255),
+        -2px 8px 0 rgb(255, 255, 255),
+        0 8px 0 rgb(255, 255, 255),
+        2px 8px 0 rgb(255, 255, 255),
+        4px 8px 0 rgb(255, 255, 255),
+        6px 8px 0 rgb(255, 255, 255),
+        8px 8px 0 rgb(255, 255, 255);
+}
+
 /* Dark mode variables */
 [data-theme="dark"] {
     --bg-page: #1a1a1a;
@@ -70,6 +112,11 @@
     --border-color: rgba(255, 255, 255, 0.2);
     --shadow-color: rgba(0, 0, 0, 0.3);
     --bg-image: url("../assets/img/dreamland_dark.jpg");
+    --input-bg-success: rgba(15, 138, 1, 0.2);
+}
+
+[data-theme="dark"] h1 {
+    text-shadow: none;
 }
 
 header{
@@ -228,7 +275,7 @@ main {
     
     > h1 {
         font-family: "Bitcount", serif;
-        font-size: 2em;
+        font-size: 2.5em;
         font-weight: 500;
         text-align: center;
         margin: 1em;
@@ -671,48 +718,241 @@ body > main > footer {
     text-align: center;
 }
 
-#contact {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background-color: var(--bg-section);
+form.contact-form {
+    width: 90%;
+    max-width: 600px;
+    background: var(--bg-section);
+    padding: 24px;
     border-radius: 12px;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    & span {
+        border-left: none !important;
+        margin-left: 0 !important;
+    }
+    & fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      & legend {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+      }
+      
+      & label {
+        color: var(--text-primary);
+      }
+
+      & span {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        border-left: none !important;
+        margin-left: 0 !important;
+        padding: 0 !important;
+        background-color: transparent !important;
+        border-radius: 0 !important;
+      }
+
+      & input,
+      & textarea {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-card);
+        color: var(--text-primary);
+      }
+
+      & input:focus,
+      & textarea:focus {
+        outline: 3px solid var(--accent);
+        border-color: var(--accent);
+        background: var(--bg-card);
+      }
+
+      & input:optional,
+      & textarea:optional {
+        background: var(--bg-card);
+      }
+
+      & input:required {
+        border-left: 4px solid var(--input-required-color); 
+        margin-left: 8px;
+      }
+
+      & span:has(input[required]) label::after {
+        content: " *";
+        color: var(--input-border-error);
+        margin-left: 4px;
+      }
+
+      & input:user-invalid:not(:placeholder-shown),
+      & textarea:user-invalid:not(:placeholder-shown) {
+        border-left: 4px solid var(--input-border-error) !important;
+        margin-left: 8px;
+        background: var(--bg-card);
+      }
+
+      & input:valid {
+        border-color: var(--input-border-success) !important;
+        background: var(--input-bg-success) !important;
+      }
+
+      
+      & button { 
+        height: 2rem;
+        width: 200px;
+        background: var(--accent);
+        color: var(--text-primary);
+        border: 2px solid var(--accent);
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.2s ease-in-out;
+      }
+
+      & button:hover {
+        background: var(--accent-strong);
+        border-color: var(--accent-strong);
+        opacity: 0.9;
+      }
+
+      & button:focus {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      & output.error {
+        color: var(--input-border-error);
+        font-size: 0.95rem;
+        min-height: 1.2rem; 
+      }
+
+      & output.info {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        min-height: 1.2rem;
+      }
+
+      & .char-counter {
+        font-size: 0.85rem;
+        text-align: right;
+        margin-top: 0.25rem;
+        color: var(--text-secondary);
+      }
+
+      & .char-counter.warning {
+        color: var(--input-required-color);
+        font-weight: bold;
+      }
+
+      & .char-counter.error {
+        color: var(--input-border-error);
+        font-weight: bold;
+      }
+
+      & input.flash,
+      & textarea.flash {
+        animation: flash 0.5s ease-in-out infinite;
+      }
+
+      & output.fade-out {
+        animation: fadeOut 3s ease-out forwards;
+      }
+
+    }
+  }
+  
+  @keyframes flash {
+    0%, 100% { 
+      background-color: var(--bg-card); 
+      border-color: var(--border-color);
+    }
+    50% { 
+      background-color: var(--input-border-error); 
+      border-color: var(--input-border-error);
+      opacity: 0.3; 
+    }
+  }
+
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+@view-transition {
+    navigation: auto;
 }
 
-form fieldset {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.5rem;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
+html {
+    view-transition-name: root;
 }
 
-form label {
-    display: block;
-    margin-bottom: 0.25rem;
-    font-weight: bold;
+.view-transition-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -10;
+    pointer-events: none;
 }
 
-form input, form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background-color: var(--bg-card);
-    color: var(--text-primary);
+::view-transition-group(root) {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-form button {
-    padding: 0.75rem 2rem;
-    background-color: var(--accent);
-    color: var(--nav-text);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    justify-self: start;
+::view-transition-group(transition-overlay) {
+    z-index: -10;
+    animation: none;
+    clip-path: none !important;
 }
 
+::view-transition-old(transition-overlay),
+::view-transition-new(transition-overlay) {
+    animation: none;
+    clip-path: none !important;
+}
+
+@keyframes move-out {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+
+  to {
+    clip-path: inset(50% 0 50% 0);
+  }
+}
+
+@keyframes move-in {
+  from {
+    clip-path: inset(50% 0 50% 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+
+::view-transition-old(root) {
+  animation: 0.75s ease-in both move-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.75s ease-in 0.75s both move-in;
+}

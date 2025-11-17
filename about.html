@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="view-transition" content="same-origin">
   <title>About Me</title>
   <meta name="description" content="About me and contact.">
   <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
@@ -10,6 +11,7 @@
   <script src="scripts/theme.js"></script>
 </head>
 <body>
+  <div class="view-transition-overlay" style="view-transition-name: transition-overlay;"></div>
   <header>
     <nav>
       <input type="checkbox" id="menu-toggle">
@@ -124,22 +126,70 @@
       <h2 id="Connect">Connect me!?</h2>
       <p>Send your connect form!</p>
 
-      <form >
-        <fieldset>
-          <legend>Connect form</legend>
+       <form 
+    id="contact-form"
+    class="contact-form"
+    action="https://httpbin.org/post"
+    method="POST"
+    >
+    <fieldset>
+      <legend>Connect form</legend>
 
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name">
+      <span> 
+        <label for="name">Name</label>
+        <input 
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          required
+          pattern="[A-Za-z\s]+"
+          minlength="2"
+          maxlength="40"
+          novalidate
+        >
+      </span>
+     
+      <span> 
+        <label for="email">Email</label> 
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="you@example.com" 
+          inputmode="email"
+          autocomplete="email"
+          minlength="6"
+          maxlength="254"
+          novalidate
+          required>
+      </span>
+      
+      <span>
+        <label for="comment">Comment</label> 
+        <textarea 
+          id="comment" 
+          name="comment" 
+          rows="6" 
+          placeholder="Share a quick summary of your question or feedback."
+          minlength="15"
+          maxlength="500"
+          ></textarea>
+          <p id="char-counter" class="char-counter">0 / 500</p>
+      </span>
+      
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com">
+      <input type="hidden" name="possible_bot" value="true">
+      <input type="hidden" name="form-errors" id="form-errors-input">
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4"></textarea>
+      <output id="output-error" class="error"></output>
+      <output id="output-info" class="info"></output>
 
-          <button >Send</button>
-        </fieldset>
-      </form>
+      <button >Send</button>
+    </fieldset>
+
+  </form>
+  <script src="scripts/form.js"></script>
     </section>
 
     <footer>
@@ -147,9 +197,6 @@
     </footer>
   </main>
 
-  <!-- progress example -->
-  <progress value="70" max="100">70%</progress>
-  
   <noscript>
     <p>Enable JavaScript for best experience. Theme switching requires JavaScript.</p>
   </noscript>

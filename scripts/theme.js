@@ -63,6 +63,14 @@ function showToggleButton() {
     }
 }
 
+// Set up toggle button event listener
+function setupToggleButton() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleTheme);
+    }
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -75,13 +83,3 @@ if (document.readyState === 'loading') {
     showToggleButton();
     setupToggleButton();
 }
-
-// Set up toggle button event listener
-function setupToggleButton() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', toggleTheme);
-    }
-}
-
-

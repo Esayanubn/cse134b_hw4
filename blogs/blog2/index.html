@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="view-transition" content="same-origin">
   <title>LLMs for Programming: The Future of Code Generation</title>
   <meta name="description" content="Exploring the impact of Large Language Models on software development and programming practices.">
   <link rel="icon" href="../../assets/img/siteicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="../../css/style.css">
+  <script src="../../scripts/theme.js"></script>
 </head>
 <body>
+  <!-- View Transition 覆盖层 -->
+  <div class="view-transition-overlay" style="view-transition-name: transition-overlay;"></div>
   <header>
-    <nav aria-label="Main navigation">
+    <nav >
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="menu-icon">☰ Menu</label>
       <ul class="main-menu">
@@ -19,6 +23,9 @@
         <li><a href="../../blogs.html">Blogs</a></li>
         <li><a href="../../about.html">About me</a></li>
         <li><a href="../../experiments.html">(experiment)</a></li>
+        <li class="theme-toggle-container">
+          <button id="theme-toggle" class="theme-toggle" type="button">🌙 Dark &nbsp</button>
+        </li>
       </ul>
     </nav>
     <hr>
@@ -27,9 +34,10 @@
   <main>
     <article>
       <h1>LLMs for Programming: The Future of Code Generation</h1>
+      <section>
       <p><strong>Keywords:</strong> Large Language Models, Code Generation, AI Programming, Software Development, Machine Learning</p>
       <p><em>Published: January 2025 | Author: Kefan Xu(actually GenAI)</em></p>
-
+      </section>
       <section>
         <h2>Introduction: The AI Revolution in Software Development</h2>
         <p>The emergence of Large Language Models (LLMs) has fundamentally transformed how we approach software development. As someone deeply involved in machine learning research and software engineering, I've witnessed firsthand how tools like GitHub Copilot, ChatGPT, and other AI-powered coding assistants are reshaping the development landscape. This transformation isn't just about writing code faster—it's about fundamentally changing how we think about programming, problem-solving, and software architecture.</p>

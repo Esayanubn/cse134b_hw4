@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="view-transition" content="same-origin">
   <title>Portfolio - Projects</title>
   <meta name="description" content="Projects list.">
   <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
@@ -10,6 +11,7 @@
   <script src="scripts/theme.js"></script>
 </head>
 <body>
+  <div class="view-transition-overlay" style="view-transition-name: transition-overlay;"></div>
   <header>
     <nav>
       <input type="checkbox" id="menu-toggle">
@@ -142,5 +144,9 @@
   <noscript>
     <p>Enable JavaScript for best experience. Theme switching requires JavaScript.</p>
   </noscript>
+  <div class="transition-mask">
+    <div class="mask-top"></div>
+    <div class="mask-bottom"></div>
+  </div>
 </body>
 </html>
